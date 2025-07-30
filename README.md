@@ -112,7 +112,6 @@ DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply
 
 ---
 
-## 📬 Role Request
-**Requesting Sergeant / Captain role in Drosera**  
-Dashboard link: [DASHBOARD_LINK]  
-GitHub repository: [GITHUB_REPO_LINK]
+## 📬 Contacts
+Discord: anverte  
+TG: @moonivette
