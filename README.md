@@ -18,13 +18,7 @@
 
 ---
 
-## 📂 Trap Contract Code
-
-(See `src/WalletBalanceTrap.sol`)
-
----
-
-## 📡 External Receiver Contract (`AlertLogger.sol`)
+## 📂 Trap Contract Code ('WalletBalanceTrap.sol')
 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
@@ -35,8 +29,37 @@ interface ITrap {
 }
 
 contract WalletBalanceTrap is ITrap {
-    // Адрес кошелька, баланс которого отслеживаем
+    // Wallet address to monitor in Hoodi network
     address public constant wallet = 0x32d3526172408fb9C3d7c8b156FC23B96D1c58e8;
+
+    function collect() external view override returns (bytes memory) {
+        return abi.encode(wallet.balance);
+    }
+
+    function shouldRespond(bytes[] calldata data) external pure override returns (bool, bytes memory) {
+        if (data.length < 2) return (false, "Insufficient data");
+
+        uint256 current = abi.decode(data[0], (uint256));
+        uint256 previous = abi.decode(data[1], (uint256));
+
+        if (previous == 0) return (false, "Previous balance is zero");
+
+        uint256 diff = current > previous ? current - previous : previous - current;
+        uint256 percent = (diff * 1_000_000) / previous; // precision to 0.0001%
+
+        // 0.0001% = 1 (in scale of 1,000,000)
+        if (percent >= 1) {
+            return (true, abi.encode("Wallet ETH balance changed > 0.0001%"));
+        }
+
+        return (false, "");
+    }
+}
+
+
+---
+
+## 📡 External Receiver Contract (`AlertLogger.sol`)
 
     function collect() external view override returns (bytes memory) {
         return abi.encode(wallet.balance);
