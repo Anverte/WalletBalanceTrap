@@ -1,7 +1,7 @@
 # WalletBalanceTrap — Drosera Trap
 
 ## 📌 Description
-`WalletBalanceTrap` is a Drosera trap that monitors the ETH balance of a specific wallet in the **Hoodi** network and triggers if the balance changes by **more than 0.0001%** in any direction.
+`WalletBalanceTrap` is a Drosera trap that monitors the ETH balance of a specific wallet in the **Hoodi** network and triggers if the balance changes by **more than 0.001%** in any direction.
 
 **Tracked wallet address**:
 ```
@@ -14,7 +14,7 @@
 
 1. **collect()** — fetches the current ETH balance of the target wallet.
 2. **shouldRespond()** — compares the current block's balance with the previous block's balance.
-3. If the balance change is greater than **0.0001%** (up or down), the function returns `true` and triggers the external contract `AlertLogger`.
+3. If the balance change is greater than **0.001%** (up or down), the function returns `true` and triggers the external contract `AlertLogger`.
 
 ---
 
