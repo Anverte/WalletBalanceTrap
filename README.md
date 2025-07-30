@@ -20,7 +20,7 @@
 
 ## 📂 Trap Contract Code ('WalletBalanceTrap.sol')
 
-<pre>``` // SPDX-License-Identifier: MIT
+``` // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 interface ITrap {
@@ -55,13 +55,13 @@ contract WalletBalanceTrap is ITrap {
         return (false, "");
     }
 }
-```</pre>
+```
 
 ---
 
 ## 📡 External Receiver Contract (`AlertLogger.sol`)
 
-<pre> // SPDX-License-Identifier: MIT
+``` // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 contract AlertLogger {
@@ -71,7 +71,7 @@ contract AlertLogger {
         emit Alert(message);
     }
 }
-</pre>
+```
 
 
 ---
@@ -79,27 +79,31 @@ contract AlertLogger {
 ## 🛠 Installation & Deployment
 
 ### 🔨 Build the trap
-<pre>
-forge build </pre>
+```
+forge build
+```
 
 🚀 Deploy AlertLogger
-<pre>
+```
 forge create \
   --rpc-url https://rpc.hoodi.ethpandaops.io \
   --broadcast \
   --private-key 0xYOUR_PRIVATE_KEY \
-  src/AlertLogger.sol:AlertLogger </pre>
+  src/AlertLogger.sol:AlertLogger
+```
 
 
 ⚙️ Configure drosera.toml
-<pre>
+```
 path = "out/WalletBalanceTrap.sol/WalletBalanceTrap.json"
 response_contract = "0xALERTLOGGER_ADDRESS"
-response_function = "logAnomaly(string)" </pre>
+response_function = "logAnomaly(string)"
+```
 
 ▶️ Apply trap
-<pre>
-DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply </pre>
+```
+DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply
+```
 
 
 ---
