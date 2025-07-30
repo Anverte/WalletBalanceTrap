@@ -20,7 +20,7 @@
 
 ## 📂 Trap Contract Code ('WalletBalanceTrap.sol')
 
-<pre> // SPDX-License-Identifier: MIT
+<pre>``` // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 interface ITrap {
@@ -55,7 +55,7 @@ contract WalletBalanceTrap is ITrap {
         return (false, "");
     }
 }
-</pre>
+```</pre>
 
 ---
 
