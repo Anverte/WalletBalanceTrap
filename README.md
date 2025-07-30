@@ -20,7 +20,8 @@
 
 ## 📂 Trap Contract Code ('WalletBalanceTrap.sol')
 
-``` // SPDX-License-Identifier: MIT
+```
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 interface ITrap {
@@ -61,7 +62,8 @@ contract WalletBalanceTrap is ITrap {
 
 ## 📡 External Receiver Contract (`AlertLogger.sol`)
 
-``` // SPDX-License-Identifier: MIT
+```
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 contract AlertLogger {
