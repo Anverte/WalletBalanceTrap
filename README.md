@@ -45,11 +45,11 @@ contract WalletBalanceTrap is ITrap {
         if (previous == 0) return (false, "Previous balance is zero");
 
         uint256 diff = current > previous ? current - previous : previous - current;
-        uint256 percent = (diff * 1_000_000) / previous; // precision to 0.0001%
+        uint256 percent = (diff * 1_000_000) / previous; // precision to 0.001%
 
-        // 0.0001% = 1 (in scale of 1,000,000)
+        // 0.001% = 1 (in scale of 1,000,000)
         if (percent >= 1) {
-            return (true, abi.encode("Wallet ETH balance changed > 0.0001%"));
+            return (true, abi.encode("Wallet ETH balance changed > 0.001%"));
         }
 
         return (false, "");
@@ -83,7 +83,7 @@ contract AlertLogger {
 forge build
 
 🚀 Deploy AlertLogger
-```bash
+bash
 forge create \
   --rpc-url https://rpc.hoodi.ethpandaops.io \
   --broadcast \
@@ -92,13 +92,13 @@ forge create \
 
 
 ⚙️ Configure drosera.toml
-```toml
+toml
 path = "out/WalletBalanceTrap.sol/WalletBalanceTrap.json"
 response_contract = "0xALERTLOGGER_ADDRESS"
 response_function = "logAnomaly(string)"
 
 ▶️ Apply trap
-```bash
+bash
 DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply
 
 
