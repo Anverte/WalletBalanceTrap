@@ -87,7 +87,7 @@ contract AlertLogger {
 </pre>
 
 # 🛠 Configure drosera.toml
-<pre> path = "out/WalletBalanceTrap.sol/WalletBalanceTrap.json"
+<pre>path = "out/WalletBalanceTrap.sol/WalletBalanceTrap.json"
 response_contract = "0xALERTLOGGER_ADDRESS"
 response_function = "logAnomaly(string)" 
 </pre>
