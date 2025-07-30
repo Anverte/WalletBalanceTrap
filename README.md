@@ -79,27 +79,27 @@ contract AlertLogger {
 ## 🛠 Installation & Deployment
 
 ### 🔨 Build the trap
-```bash
-forge build
+<pre>
+forge build </pre>
 
 🚀 Deploy AlertLogger
-bash
+<pre>
 forge create \
   --rpc-url https://rpc.hoodi.ethpandaops.io \
   --broadcast \
   --private-key 0xYOUR_PRIVATE_KEY \
-  src/AlertLogger.sol:AlertLogger
+  src/AlertLogger.sol:AlertLogger </pre>
 
 
 ⚙️ Configure drosera.toml
-toml
+<pre>
 path = "out/WalletBalanceTrap.sol/WalletBalanceTrap.json"
 response_contract = "0xALERTLOGGER_ADDRESS"
-response_function = "logAnomaly(string)"
+response_function = "logAnomaly(string)" </pre>
 
 ▶️ Apply trap
-bash
-DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply
+<pre>
+DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply </pre>
 
 
 ---
