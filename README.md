@@ -30,7 +30,7 @@ interface ITrap {
 }
 
 contract WalletBalanceTrap is ITrap {
-    // Wallet address to monitor in Hoodi network
+    // Address of the wallet whose ETH balance will be tracked
     address public constant wallet = 0x32d3526172408fb9C3d7c8b156FC23B96D1c58e8;
 
     function collect() external view override returns (bytes memory) {
@@ -46,9 +46,9 @@ contract WalletBalanceTrap is ITrap {
         if (previous == 0) return (false, "Previous balance is zero");
 
         uint256 diff = current > previous ? current - previous : previous - current;
-        uint256 percent = (diff * 1_000_000) / previous; // precision to 0.001%
+        uint256 percent = (diff * 1_000_000) / previous; // 6 decimal precision
 
-        // 0.001% = 1 (in scale of 1,000,000)
+        // 0.001% = 1 (in 1,000,000 scale)
         if (percent >= 1) {
             return (true, abi.encode("Wallet ETH balance changed > 0.001%"));
         }
