@@ -25,9 +25,9 @@ contract WalletBalanceTrap is ITrap {
         uint256 diff = current > previous ? current - previous : previous - current;
         uint256 percent = (diff * 1_000_000) / previous; // 6 decimal precision
 
-        // 0.0001% = 1 (in 1,000,000 scale)
+        // 0.001% = 1 (in 1,000,000 scale)
         if (percent >= 1) {
-            return (true, abi.encode("Wallet ETH balance changed > 0.0001%"));
+            return (true, abi.encode("Wallet ETH balance changed > 0.001%"));
         }
 
         return (false, "");
