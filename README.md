@@ -55,7 +55,7 @@ contract WalletBalanceTrap is ITrap {
         return (false, "");
     }
 }
-
+``` </pre>
 
 ---
 
@@ -71,7 +71,7 @@ contract AlertLogger {
         emit Alert(message);
     }
 }
-
+``` </pre>
 
 
 ---
